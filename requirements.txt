@@ -1,0 +1,4 @@
+pbr>=1.6 # Apache-2.0
+click == 6.2
+python-etcd == 0.4.3
+-e git+https://github.com/midonet/midonet.git@stable/v5.1.0#egg=python-midonetclient&subdirectory=python-midonetclient

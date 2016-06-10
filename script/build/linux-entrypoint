@@ -1,0 +1,15 @@
+#!/bin/sh
+
+set -ex
+
+TARGET=dist/mjolnir-$(uname -s)-$(uname -m)
+VENV=/code/.tox/py27
+
+mkdir -p "$(pwd)/dist"
+chmod 777 "$(pwd)/dist"
+
+"$VENV/bin/pip" install -q -r requirements-build.txt
+git rev-parse --short HEAD > mjolnir/GITSHA
+su -c "$VENV/bin/pyinstaller mjolnir.spec" user
+mv dist/mjolnir "$TARGET"
+$TARGET --help
