@@ -8,6 +8,7 @@ KEY = '/midonet/agents/'
 
 
 @click.command()
+@click.version_option()
 @click.option('--tunnel-zone', default='default', help='Name of the tunnel '
               'zone to add the hosts to.')
 @click.option('--encapsulation', default='vxlan', help='Encapsulation '
